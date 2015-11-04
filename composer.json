@@ -1,0 +1,24 @@
+{
+    "name": "mhshohel/appbajarticket",
+    "description": "A simple helpdesk tickets system for Laravel 5.1 which integrates smoothly with Laravel default users and auth system",
+    "type": "laravel-package",
+    "keywords": ["laravel","helpdesk", "ticket", "support"],
+    "require": {
+        "laravel/framework": "^5.1",
+        "laravelcollective/html": "^5.1",
+        "illuminate/support": "^5.1",
+        "yajra/laravel-datatables-oracle": "~5.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mh Shohel",
+            "email": "mhshohel89@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mhshohel\\Appbajarticket\\": "src"
+        }
+    }
+}
