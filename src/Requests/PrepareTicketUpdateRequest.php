@@ -1,6 +1,6 @@
 <?php
 
-namespace Kordy\Ticketit\Requests;
+namespace Mhshohel\Appbajarticket\Requests;
 
 use App\Http\Requests\Request;
 

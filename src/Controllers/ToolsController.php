@@ -1,5 +1,5 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;

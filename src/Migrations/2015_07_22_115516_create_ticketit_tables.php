@@ -37,6 +37,7 @@ class CreateTicketitTables extends Migration
 
         Schema::create('ticketit', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ticket_no');
             $table->string('subject');
             $table->longText('content');
             $table->integer('status_id')->unsigned();

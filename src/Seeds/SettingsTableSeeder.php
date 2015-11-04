@@ -1,9 +1,9 @@
 <?php
 
-namespace Kordy\Ticketit\Seeds;
+namespace Mhshohel\Appbajarticket\Seeds;
 
 use Illuminate\Database\Seeder;
-use Kordy\Ticketit\Models\Setting;
+use Mhshohel\Appbajarticket\Models\Setting;
 
 class SettingsTableSeeder extends Seeder
 {

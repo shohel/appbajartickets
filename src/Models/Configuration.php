@@ -1,10 +1,10 @@
 <?php
 
-namespace Kordy\Ticketit\Models;
+namespace Mhshohel\Appbajarticket\Models;
 
 use Auth;
 use Illuminate\Database\Eloquent\Model as Model;
-use Kordy\Ticketit\Models\Configuration;
+use Mhshohel\Appbajarticket\Models\Configuration;
 
 class Configuration extends Model
 {

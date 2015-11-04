@@ -1,9 +1,9 @@
 <?php
 
-namespace Kordy\Ticketit\Middleware;
+namespace Mhshohel\Appbajarticket\Middleware;
 
 use \Closure;
-use Kordy\Ticketit\Models\Agent;
+use Mhshohel\Appbajarticket\Models\Agent;
 
 class IsAgentMiddleware
 {
@@ -19,7 +19,7 @@ class IsAgentMiddleware
         if (Agent::isAgent() || Agent::isAdmin()) {
             return $next($request);
         }
-        return redirect()->action('\Kordy\Ticketit\Controllers\TicketsController@index')
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\TicketsController@index')
             ->with('warning', 'You are not permitted to access this page!');
     }
 

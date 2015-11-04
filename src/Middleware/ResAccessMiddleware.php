@@ -1,9 +1,9 @@
 <?php
 
-namespace Kordy\Ticketit\Middleware;
+namespace Mhshohel\Appbajarticket\Middleware;
 
-use Kordy\Ticketit\Models\Agent;
-use Kordy\Ticketit\Models\Setting;
+use Mhshohel\Appbajarticket\Models\Agent;
+use Mhshohel\Appbajarticket\Models\Setting;
 use \Closure;
 
 class ResAccessMiddleware
@@ -48,7 +48,7 @@ class ResAccessMiddleware
             return $next($request);
         }
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\TicketsController@index')
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\TicketsController@index')
             ->with('warning', 'You are not permitted to access this page!');
     }
 

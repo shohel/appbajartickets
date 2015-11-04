@@ -1,12 +1,12 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Kordy\Ticketit\Requests\PreparePriorityRequest;
+use Mhshohel\Appbajarticket\Requests\PreparePriorityRequest;
 use App\Http\Controllers\Controller;
-use Kordy\Ticketit\Models\Priority;
+use Mhshohel\Appbajarticket\Models\Priority;
 use Illuminate\Support\Facades\Session;
 
 class PrioritiesController extends Controller {
@@ -45,7 +45,7 @@ class PrioritiesController extends Controller {
 
         Session::flash('status', trans('ticketit::lang.priority-name-has-been-created', ['name' => $request->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\PrioritiesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\PrioritiesController@index');
     }
 
     /**
@@ -87,7 +87,7 @@ class PrioritiesController extends Controller {
         Session::flash('status', trans('ticketit::lang.priority-name-has-been-modified', ['name' => $request->name]));
         
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\PrioritiesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\PrioritiesController@index');
     }
 
     /**
@@ -104,6 +104,6 @@ class PrioritiesController extends Controller {
 
         Session::flash('status', trans('ticketit::lang.priority-name-has-been-deleted', ['name' => $name]));
         
-        return redirect()->action('\Kordy\Ticketit\Controllers\PrioritiesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\PrioritiesController@index');
     }
 }

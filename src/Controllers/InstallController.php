@@ -1,14 +1,14 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
-use Kordy\Ticketit\Models\Setting;
-use Kordy\Ticketit\Seeds\SettingsTableSeeder;
-use Kordy\Ticketit\Seeds\TicketitTableSeeder;
+use Mhshohel\Appbajarticket\Models\Setting;
+use Mhshohel\Appbajarticket\Seeds\SettingsTableSeeder;
+use Mhshohel\Appbajarticket\Seeds\TicketitTableSeeder;
 
 class InstallController extends Controller
 {
@@ -169,6 +169,6 @@ class InstallController extends Controller
         $seeder = new TicketitTableSeeder();
         $seeder->run();
         session()->flash('status', 'Demo tickets, users, and agents are seeded!');
-        return redirect()->action('\Kordy\Ticketit\Controllers\TicketsController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\TicketsController@index');
     }
 }

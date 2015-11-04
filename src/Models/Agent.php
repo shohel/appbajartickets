@@ -1,11 +1,11 @@
 <?php
 
-namespace Kordy\Ticketit\Models;
+namespace Mhshohel\Appbajarticket\Models;
 
 use App\User;
 use Auth;
-use Kordy\Ticketit\Models\Setting;
-use Kordy\Ticketit\Models\Ticket;
+use Mhshohel\Appbajarticket\Models\Setting;
+use Mhshohel\Appbajarticket\Models\Ticket;
 
 class Agent extends User
 {
@@ -127,7 +127,7 @@ class Agent extends User
      */
     public function categories()
     {
-        return $this->belongsToMany('Kordy\Ticketit\Models\Category', 'ticketit_categories_users', 'user_id', 'category_id');
+        return $this->belongsToMany('Mhshohel\Appbajarticket\Models\Category', 'ticketit_categories_users', 'user_id', 'category_id');
     }
 
     /**
@@ -137,9 +137,9 @@ class Agent extends User
     public function agentTickets($complete = false)
     {
         if ($complete) {
-            return $this->hasMany('Kordy\Ticketit\Models\Ticket', 'agent_id')->whereNotNull('completed_at');
+            return $this->hasMany('Mhshohel\Appbajarticket\Models\Ticket', 'agent_id')->whereNotNull('completed_at');
         } else {
-            return $this->hasMany('Kordy\Ticketit\Models\Ticket', 'agent_id')->whereNull('completed_at');
+            return $this->hasMany('Mhshohel\Appbajarticket\Models\Ticket', 'agent_id')->whereNull('completed_at');
         }
     }
 
@@ -151,18 +151,18 @@ class Agent extends User
     public function userTickets($complete = false)
     {
         if ($complete) {
-            return $this->hasMany('Kordy\Ticketit\Models\Ticket', 'user_id')->whereNotNull('completed_at');
+            return $this->hasMany('Mhshohel\Appbajarticket\Models\Ticket', 'user_id')->whereNotNull('completed_at');
         } else {
-            return $this->hasMany('Kordy\Ticketit\Models\Ticket', 'user_id')->whereNull('completed_at');
+            return $this->hasMany('Mhshohel\Appbajarticket\Models\Ticket', 'user_id')->whereNull('completed_at');
         }
     }
 
     public function tickets($complete = false)
     {
         if ($complete) {
-            return $this->hasMany('Kordy\Ticketit\Models\Ticket', 'user_id')->whereNotNull('completed_at');
+            return $this->hasMany('Mhshohel\Appbajarticket\Models\Ticket', 'user_id')->whereNotNull('completed_at');
         } else {
-            return $this->hasMany('Kordy\Ticketit\Models\Ticket', 'user_id')->whereNull('completed_at');
+            return $this->hasMany('Mhshohel\Appbajarticket\Models\Ticket', 'user_id')->whereNull('completed_at');
         }
     }
 

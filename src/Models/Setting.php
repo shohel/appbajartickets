@@ -1,10 +1,10 @@
 <?php
 
-namespace Kordy\Ticketit\Models;
+namespace Mhshohel\Appbajarticket\Models;
 
 use Cache;
 use Illuminate\Database\Eloquent\Model;
-use Kordy\Ticketit\Models\Setting as Table;
+use Mhshohel\Appbajarticket\Models\Setting as Table;
 
 class Setting extends Model
 {

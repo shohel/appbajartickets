@@ -1,13 +1,13 @@
 <?php 
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Kordy\Ticketit\Requests\PrepareConfigurationStoreRequest;
-use Kordy\Ticketit\Requests\PrepareConfigurationUpdateRequest;
+use Mhshohel\Appbajarticket\Requests\PrepareConfigurationStoreRequest;
+use Mhshohel\Appbajarticket\Requests\PrepareConfigurationUpdateRequest;
 use App\Http\Controllers\Controller;
-use Kordy\Ticketit\Models\Configuration;
+use Mhshohel\Appbajarticket\Models\Configuration;
 use Illuminate\Support\Facades\Session;
 
 class ConfigurationsController extends Controller
@@ -72,7 +72,7 @@ class ConfigurationsController extends Controller
 
     Session::flash('configuration', 'Setting saved successfully.');
 
-    return redirect()->action('\Kordy\Ticketit\Controllers\ConfigurationsController@index');
+    return redirect()->action('\Mhshohel\Appbajarticket\Controllers\ConfigurationsController@index');
   }
 
   /**
@@ -104,7 +104,7 @@ class ConfigurationsController extends Controller
     Session::flash('configuration', trans('ticketit::lang.configuration-name-has-been-modified', ['name' => $request->name]));   
     
     //return redirect(route('ticketit::admin.configuration.index'));
-    return redirect()->action('\Kordy\Ticketit\Controllers\ConfigurationsController@index');
+    return redirect()->action('\Mhshohel\Appbajarticket\Controllers\ConfigurationsController@index');
   }
 
 }

@@ -57,7 +57,7 @@
                                                         $agent->id
                                                         ],
                                             ]) !!}
-                            @foreach(\Kordy\Ticketit\Models\Category::all() as $agent_cat)
+                            @foreach(\Mhshohel\Appbajarticket\Models\Category::all() as $agent_cat)
                                 <input name="agent_cats[]"
                                        type="checkbox"
                                        value="{{ $agent_cat->id }}"

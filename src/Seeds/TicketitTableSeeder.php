@@ -1,5 +1,5 @@
 <?php
-namespace Kordy\Ticketit\Seeds;
+namespace Mhshohel\Appbajarticket\Seeds;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -51,7 +51,7 @@ class TicketitTableSeeder extends Seeder
 
         // create tickets statuses
         foreach ($statuses as $name => $color) {
-            $status = \Kordy\Ticketit\Models\Status::create([
+            $status = \Mhshohel\Appbajarticket\Models\Status::create([
                 'name' => $name,
                 'color' => $color
             ]);
@@ -63,11 +63,11 @@ class TicketitTableSeeder extends Seeder
             'Customer Services' => '#7e0099'
         ];
 
-        $agents = \Kordy\Ticketit\Models\Agent::agentsLists();
+        $agents = \Mhshohel\Appbajarticket\Models\Agent::agentsLists();
         $counter = 0;
         // create tickets statuses
         foreach ($categories as $name => $color) {
-            $category = \Kordy\Ticketit\Models\Category::create([
+            $category = \Mhshohel\Appbajarticket\Models\Category::create([
                 'name' => $name,
                 'color' => $color
             ]);
@@ -84,7 +84,7 @@ class TicketitTableSeeder extends Seeder
 
         // create tickets statuses
         foreach ($priorities as $name => $color) {
-            $priority = \Kordy\Ticketit\Models\Priority::create([
+            $priority = \Mhshohel\Appbajarticket\Models\Priority::create([
                 'name' => $name,
                 'color' => $color
             ]);
@@ -114,13 +114,13 @@ class TicketitTableSeeder extends Seeder
                 $random_title = substr($random_content, $random_title_length);
 
                 $rand_category = rand(1, 3);
-                $category = \Kordy\Ticketit\Models\Category::find($rand_category);
+                $category = \Mhshohel\Appbajarticket\Models\Category::find($rand_category);
                 $agents = $category->agents()->lists('name', 'id')->toArray();
                 $agent_id = array_rand($agents);
 
                 $rand_status = rand(1, 3);
 
-                $ticket = new \Kordy\Ticketit\Models\Ticket();
+                $ticket = new \Mhshohel\Appbajarticket\Models\Ticket();
                 $ticket->subject = $random_title;
                 $ticket->content = $random_content;
                 $ticket->status_id = $rand_status;

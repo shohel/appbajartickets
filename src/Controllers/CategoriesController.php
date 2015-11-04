@@ -1,12 +1,12 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Kordy\Ticketit\Requests\PrepareCategoryRequest;
+use Mhshohel\Appbajarticket\Requests\PrepareCategoryRequest;
 use App\Http\Controllers\Controller;
-use Kordy\Ticketit\Models\Category;
+use Mhshohel\Appbajarticket\Models\Category;
 use Illuminate\Support\Facades\Session;
 
 class CategoriesController extends Controller {
@@ -45,7 +45,7 @@ class CategoriesController extends Controller {
 
         Session::flash('status', trans('ticketit::lang.category-name-has-been-created', ['name' => $request->name]));     
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\CategoriesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\CategoriesController@index');
     }
 
     /**
@@ -85,7 +85,7 @@ class CategoriesController extends Controller {
 
         Session::flash('status', trans('ticketit::lang.category-name-has-been-modified', ['name' => $request->name]));     
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\CategoriesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\CategoriesController@index');
     }
 
     /**
@@ -102,6 +102,6 @@ class CategoriesController extends Controller {
 
         Session::flash('status', trans('ticketit::lang.category-name-has-been-deleted', ['name' => $name]));        
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\CategoriesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\CategoriesController@index');
     }
 }

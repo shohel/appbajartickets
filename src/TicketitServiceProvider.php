@@ -1,17 +1,17 @@
 <?php
-namespace Kordy\Ticketit;
+namespace Mhshohel\Appbajarticket;
 use Collective\Html\FormFacade as Form;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Kordy\Ticketit\Controllers\InstallController;
-use Kordy\Ticketit\Controllers\NotificationsController;
-use Kordy\Ticketit\Controllers\ToolsController;
-use Kordy\Ticketit\Models\Agent;
-use Kordy\Ticketit\Models\Comment;
-use Kordy\Ticketit\Models\Setting;
-use Kordy\Ticketit\Models\Ticket;
+use Mhshohel\Appbajarticket\Controllers\InstallController;
+use Mhshohel\Appbajarticket\Controllers\NotificationsController;
+use Mhshohel\Appbajarticket\Controllers\ToolsController;
+use Mhshohel\Appbajarticket\Models\Agent;
+use Mhshohel\Appbajarticket\Models\Comment;
+use Mhshohel\Appbajarticket\Models\Setting;
+use Mhshohel\Appbajarticket\Models\Ticket;
 class TicketitServiceProvider extends ServiceProvider {
     /**
      * Bootstrap the application services.
@@ -68,6 +68,15 @@ class TicketitServiceProvider extends ServiceProvider {
                 }
                 return true;
             });
+
+            // Send notification when ticket created by user
+            Ticket::created(function ($ticket) {
+                if (Setting::grab('ticketCreate_notification')) {
+                    $notification = new NotificationsController();
+                    $notification->newTicketNotifyCretor($ticket);
+                }
+                return true;
+            });            
             // Send notification when ticket status is modified
             Ticket::created(function ($ticket) {
                 if (Setting::grab('assigned_notification')) {
@@ -96,11 +105,11 @@ class TicketitServiceProvider extends ServiceProvider {
             $this->publishes([__DIR__ . '/Migrations' => base_path('database/migrations')], 'db');
             Route::get('/tickets-install', [
                 'middleware' => 'auth',
-                'uses' => 'Kordy\Ticketit\Controllers\InstallController@index'
+                'uses' => 'Mhshohel\Appbajarticket\Controllers\InstallController@index'
             ]);
             Route::post('/tickets-install', [
                 'middleware' => 'auth',
-                'uses' => 'Kordy\Ticketit\Controllers\InstallController@setup'
+                'uses' => 'Mhshohel\Appbajarticket\Controllers\InstallController@setup'
             ]);
         }
     }

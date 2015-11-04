@@ -1,12 +1,12 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Kordy\Ticketit\Requests\PrepareStatusRequest;
+use Mhshohel\Appbajarticket\Requests\PrepareStatusRequest;
 use App\Http\Controllers\Controller;
-use Kordy\Ticketit\Models\Status;
+use Mhshohel\Appbajarticket\Models\Status;
 use Illuminate\Support\Facades\Session;
 
 class StatusesController extends Controller {
@@ -45,7 +45,7 @@ class StatusesController extends Controller {
 
          Session::flash('status', trans('ticketit::lang.status-name-has-been-created', ['name' => $request->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\StatusesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\StatusesController@index');
     }
 
     /**
@@ -85,7 +85,7 @@ class StatusesController extends Controller {
 
         Session::flash('status', trans('ticketit::lang.status-name-has-been-modified', ['name' => $request->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\StatusesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\StatusesController@index');
     }
 
     /**
@@ -102,6 +102,6 @@ class StatusesController extends Controller {
 
         Session::flash('status', trans('ticketit::lang.status-name-has-been-deleted', ['name' => $name]));
         
-        return redirect()->action('\Kordy\Ticketit\Controllers\StatusesController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\StatusesController@index');
     }
 }

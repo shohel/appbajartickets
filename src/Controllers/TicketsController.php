@@ -1,16 +1,16 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Kordy\Ticketit\Models;
-use Kordy\Ticketit\Models\Agent;
-use Kordy\Ticketit\Models\Setting;
-use Kordy\Ticketit\Models\Ticket;
-use Kordy\Ticketit\Models\Category;
-use Kordy\Ticketit\Requests\PrepareTicketStoreRequest;
-use Kordy\Ticketit\Requests\PrepareTicketUpdateRequest;
+use Mhshohel\Appbajarticket\Models;
+use Mhshohel\Appbajarticket\Models\Agent;
+use Mhshohel\Appbajarticket\Models\Setting;
+use Mhshohel\Appbajarticket\Models\Ticket;
+use Mhshohel\Appbajarticket\Models\Category;
+use Mhshohel\Appbajarticket\Requests\PrepareTicketStoreRequest;
+use Mhshohel\Appbajarticket\Requests\PrepareTicketUpdateRequest;
 use yajra\Datatables\Datatables;
 use yajra\Datatables\Engines\EloquentEngine;
 
@@ -22,9 +22,9 @@ class TicketsController extends Controller
 
     public function __construct(Ticket $tickets, Agent $agent)
     {
-        $this->middleware('Kordy\Ticketit\Middleware\ResAccessMiddleware', ['only' => ['show']]);
-        $this->middleware('Kordy\Ticketit\Middleware\IsAgentMiddleware', ['only' => ['edit', 'update']]);
-        $this->middleware('Kordy\Ticketit\Middleware\IsAdminMiddleware', ['only' => ['destroy']]);
+        $this->middleware('Mhshohel\Appbajarticket\Middleware\ResAccessMiddleware', ['only' => ['show']]);
+        $this->middleware('Mhshohel\Appbajarticket\Middleware\IsAgentMiddleware', ['only' => ['edit', 'update']]);
+        $this->middleware('Mhshohel\Appbajarticket\Middleware\IsAdminMiddleware', ['only' => ['destroy']]);
 
         $this->tickets = $tickets;
         $this->agent = $agent;
@@ -155,10 +155,12 @@ class TicketsController extends Controller
      * @param  Request  $request
      * @return Response redirect to index
      */
-    public function store(PrepareTicketStoreRequest $request)
+public function store(PrepareTicketStoreRequest $request)
     {
-        $ticket = new Ticket;
 
+        $ticket_no = 'TNQ-'.time().'-'.str_random(5);
+        $ticket = new Ticket;
+        $ticket->ticket_no = $ticket_no                         ;
         $ticket->subject = $request->subject;
         $ticket->content = $request->content;
         $ticket->priority_id = $request->priority_id;
@@ -172,7 +174,7 @@ class TicketsController extends Controller
 
         session()->flash('status', trans('ticketit::lang.the-ticket-has-been-created'));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\TicketsController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\TicketsController@index');
     }
 
     /**
@@ -266,6 +268,7 @@ class TicketsController extends Controller
 
             $ticket = $this->tickets->findOrFail($id);
             $ticket->completed_at = Carbon::now();
+            $ticket->status_id = '2       ';
 
             if (Setting::grab('default_close_status_id')) {
                 $ticket->status_id = Setting::grab('default_close_status_id');

@@ -1,11 +1,11 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Kordy\Ticketit\Models\Agent;
-use Kordy\Ticketit\Models\Setting;
+use Mhshohel\Appbajarticket\Models\Agent;
+use Mhshohel\Appbajarticket\Models\Setting;
 
 class AgentsController extends Controller
 {
@@ -29,7 +29,7 @@ class AgentsController extends Controller
 
         Session::flash('status', trans('ticketit::lang.agents-are-added-to-agents', ['names' => $agents_names]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\AgentsController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\AgentsController@index');
     }
 
     public function update($id, Request $request)
@@ -38,7 +38,7 @@ class AgentsController extends Controller
 
         Session::flash('status', trans('ticketit::lang.agents-joined-categories-ok'));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\AgentsController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\AgentsController@index');
     }
 
     public function destroy($id)
@@ -47,7 +47,7 @@ class AgentsController extends Controller
 
         Session::flash('status', trans('ticketit::lang.agents-is-removed-from-team', ['name' => $agent->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\AgentsController@index');
+        return redirect()->action('\Mhshohel\Appbajarticket\Controllers\AgentsController@index');
     }
 
     /**

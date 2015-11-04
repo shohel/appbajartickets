@@ -1,14 +1,15 @@
 <?php
-namespace Kordy\Ticketit\Controllers;
+namespace Mhshohel\Appbajarticket\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-use Kordy\Ticketit\Models\Comment;
-use Kordy\Ticketit\Models\Setting;
-use Kordy\Ticketit\Models\Ticket;
+use Mhshohel\Appbajarticket\Models\Comment;
+use Mhshohel\Appbajarticket\Models\Setting;
+use Mhshohel\Appbajarticket\Models\Ticket;
 
 class NotificationsController extends Controller
 {
+
 
     public function newComment(Comment $comment)
     {
@@ -54,6 +55,24 @@ class NotificationsController extends Controller
             $notification_owner->name . trans('ticketit::lang.notify-transferred') . $ticket->subject . trans('ticketit::lang.notify-to-you'), 'agent');
     }
 
+
+    public function newTicketNotifyCretor(Ticket $ticket)
+    {
+        $notification_owner = auth()->user();
+
+        $template = "ticketit::emails.createTicket";
+        $data = [
+            'ticket' => serialize($ticket),
+            'notification_owner' => serialize($notification_owner),
+        ];
+
+        $this->sendNotification($template, $data, $ticket, $notification_owner,
+            $notification_owner->name . trans('ticketit::lang.notify-created-ticket') . $ticket->subject, 'user');
+    }
+
+
+
+
     public function newTicketNotifyAgent(Ticket $ticket)
     {
         $notification_owner = auth()->user();
@@ -76,9 +95,11 @@ class NotificationsController extends Controller
      */
     public function sendNotification($template, $data, $ticket, $notification_owner, $subject, $type)
     {
+        $from_email='no-reply@appbajar.com';
+   
         if (Setting::grab('queue_emails') == 'yes') {
             Mail::queue($template, $data,
-                function ($m) use ($ticket, $notification_owner, $subject, $type) {
+                function ($m) use ($ticket, $notification_owner, $subject, $type,$from_email) {
 
                     if ($type != 'agent') {
                         if ($ticket->user->email != $notification_owner->email) {
@@ -89,19 +110,28 @@ class NotificationsController extends Controller
                             $m->to($ticket->agent->email, $ticket->agent->name);
                         }
 
+
+                        if ($ticket->user->email = $notification_owner->email) {
+                            $m->to($ticket->user->email, $ticket->user->name);
+                        }
+
+
+
                     } else {
                         $m->to($ticket->agent->email, $ticket->agent->name);
                     }
 
-                    $m->from($notification_owner->email, $notification_owner->name);
+                    //$m->from($notification_owner->email, $notification_owner->name);
+                    $m->from($from_email, 'Appbajar');
 
                     $m->subject($subject);
                 });
         } else {
             Mail::send($template, $data,
-                function ($m) use ($ticket, $notification_owner, $subject, $type) {
+                function ($m) use ($ticket, $notification_owner, $subject, $type,$from_email) {
 
                     if ($type != 'agent') {
+
                         if ($ticket->user->email != $notification_owner->email) {
                             $m->to($ticket->user->email, $ticket->user->name);
                         }
@@ -110,11 +140,18 @@ class NotificationsController extends Controller
                             $m->to($ticket->agent->email, $ticket->agent->name);
                         }
 
+
+                        if ($ticket->user->email = $notification_owner->email) {
+                            $m->to($ticket->user->email, $ticket->user->name);
+                        }
+
+
                     } else {
                         $m->to($ticket->agent->email, $ticket->agent->name);
                     }
 
-                    $m->from($notification_owner->email, $notification_owner->name);
+                    //$m->from($notification_owner->email, $notification_owner->name);
+                        $m->from($from_email, 'AppBajar');
 
                     $m->subject($subject);
                 });
