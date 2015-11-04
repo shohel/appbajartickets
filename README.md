@@ -37,7 +37,7 @@ Step 1. Run this code via your terminal (1-2 minutes)
 
 Step 2. After install, you have to add this line on your `config/app.php` in Service Providers section (1-2 minutes).
 ```php
-	Khshohel\Appbajarticket\TicketitServiceProvider::class,
+	Mhshohel\Appbajarticket\TicketitServiceProvider::class,
 ```
 
 Step 3. [Setting up your master view for Ticketit integration (1-2 minutes)](https://github.com/thekordy/ticketit/wiki/Integrating-Ticketit-views-with-your-project-template)
