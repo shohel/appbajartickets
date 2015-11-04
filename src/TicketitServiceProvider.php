@@ -71,12 +71,12 @@ class TicketitServiceProvider extends ServiceProvider {
 
             // Send notification when ticket created by user
             Ticket::created(function ($ticket) {
-                if (Setting::grab('ticketCreate_notification')) {
+                if (Setting::grab('ticketCreate_notification') == true) {
                     $notification = new NotificationsController();
                     $notification->newTicketNotifyCretor($ticket);
                 }
                 return true;
-            });            
+            });
             // Send notification when ticket status is modified
             Ticket::created(function ($ticket) {
                 if (Setting::grab('assigned_notification')) {

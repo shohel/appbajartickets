@@ -200,6 +200,7 @@ class SettingsTableSeeder extends Seeder
              * Options: builtin, modal
              */
             'delete_modal_type' => 'builtin',
+            'ticketCreate_notification' => 'yes',
 
         ];
 

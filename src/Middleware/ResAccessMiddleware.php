@@ -17,6 +17,7 @@ class ResAccessMiddleware
      */
     public function handle($request, Closure $next)
     {
+
         if (Agent::isAdmin()) {
             return $next($request);
         }
@@ -29,12 +30,12 @@ class ResAccessMiddleware
         }
 
         // if this is a ticket show page
-        if ($request->route()->getName() == Setting::grab('main_route') . '.show') {
+        if ($request->route()->getName() == $request->segment(1).'.'.Setting::grab('main_route') . '.show') {
             $ticket_id = $request->route(Setting::grab('main_route'));
         }
 
         // if this is a new comment on a ticket
-        if ($request->route()->getName() == Setting::grab('main_route') . '-comment.store') {
+        if ($request->route()->getName() == $request->segment(1).'.'.Setting::grab('main_route') . '-comment.store') {
             $ticket_id = $request->get('ticket_id');
         }
 
