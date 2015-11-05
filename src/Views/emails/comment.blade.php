@@ -17,12 +17,12 @@
                         
                         <table width="624" cellspacing="0" cellpadding="0" border="0">
                             <tbody><tr>
-                                <td valign="top"> 
-                                    
-                                    
+                                <td valign="top">
+
+
                                     <table width="0" cellspacing="0" cellpadding="0" border="0">
                                         <tbody><tr>
-                                            <td valign="left" height="40"><img width="120" height="65" align="right" src="{{ asset('assets/frontend/logo/logo_email.png') }}" alt="" class="CToWUd">
+                                            <td width="52" valign="left" height="40"><img height="65" align="right" src="{{ asset('assets/frontend/logo/logo_email.png') }}" alt="" class="CToWUd">
                                             </td>
                                             
                                         </tr>
