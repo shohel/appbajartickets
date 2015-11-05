@@ -21,10 +21,10 @@ class InstallController extends Controller
 
     public function publicAssets() {
         $public = $this->allFilesList(public_path('vendor/ticketit'));
-        $assets = $this->allFilesList(base_path('vendor/kordy/ticketit/src/Public'));
+        $assets = $this->allFilesList(base_path('vendor/mhshohel/ticketit/src/Public'));
         if( $public !== $assets ) {
             Artisan::call('vendor:publish', [
-                '--provider' => 'Kordy\\Ticketit\\TicketitServiceProvider',
+                '--provider' => 'Mhshohel\\Appbajarticket\\TicketitServiceProvider',
                 '--tag' => ['public']
             ]);
         }
@@ -61,7 +61,7 @@ class InstallController extends Controller
     public function initialSettings($master) {
         if ($this->inactiveMigrations()) { // If a migration is missing, do the migrate
             Artisan::call('vendor:publish', [
-                '--provider' => 'Kordy\\Ticketit\\TicketitServiceProvider',
+                '--provider' => 'Mhshohel\\Appbajarticket\\TicketitServiceProvider',
                 '--tag' => ['db']
             ]);
             Artisan::call('migrate');

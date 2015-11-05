@@ -2,7 +2,7 @@
 
 return [
 
-    'initial-setup'                   => 'Ticketit Initial Setup',
+    'initial-setup'                   => 'Appbajarticket Initial Setup',
     'master-template-file'            => 'Master template file',
     'master-template-other-path'      => 'Other path to the master template file',
     'master-template-other-path-ex'   => 'ex. views/layout/app.blade.php',

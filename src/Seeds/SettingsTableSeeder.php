@@ -89,12 +89,12 @@ class SettingsTableSeeder extends Seeder
         return [
 
             /*
-             * Ticketit main route: Where to load the ticket system (ex. http://url/tickets)
+             * Appbajarticket main route: Where to load the ticket system (ex. http://url/tickets)
              * Default: /ticket
              */
             'main_route' => 'tickets',
             /*
-             * Ticketit admin route: Where to load the ticket administration dashboard (ex. http://url/tickets-admin)
+             * Appbajarticket admin route: Where to load the ticket administration dashboard (ex. http://url/tickets-admin)
              * Default: /ticket
              */
             'admin_route' => 'tickets-admin',
@@ -116,8 +116,8 @@ class SettingsTableSeeder extends Seeder
             'email.google_plus_link' => '#', // Toogle icon link: false or string
             'email.facebook_link' => '#', // Toogle icon link: false or string
             'email.twitter_link' => '#', // Toogle icon link: false or string
-            'email.footer' => 'Powered by Ticketit',
-            'email.footer_link' => 'https://github.com/thekordy/ticketit',
+            'email.footer' => 'Powered by Appbajarticket',
+            'email.footer_link' => 'https://github.com/mh-shohel/pppbajarticket',
             'email.color_body_bg' => '#FFFFFF',
             'email.color_header_bg' => '#44B7B7',
             'email.color_content_bg' => '#F46B45',
