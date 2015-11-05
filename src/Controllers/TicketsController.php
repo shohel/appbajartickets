@@ -158,8 +158,7 @@ class TicketsController extends Controller
      */
 public function store(PrepareTicketStoreRequest $request)
     {
-
-        $ticket_no = 'TNQ-'.time().'-'.str_random(5);
+        $ticket_no = 'TNQ-'.rand(100,999).'-'.rand(10000, 99999);
         $ticket = new Ticket;
         $ticket->ticket_no = $ticket_no                         ;
         $ticket->subject = $request->subject;
