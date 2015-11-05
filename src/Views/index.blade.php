@@ -48,13 +48,14 @@
 			},
 	        columns: [
 	            { data: 'id', name: 'ticketit.id' },
+	            { data: 'ticket_no', name: 'ticketit.ticket_no' },
 	            { data: 'subject', name: 'subject' },
 	            { data: 'status', name: 'ticketit_statuses.name' },
 	            { data: 'updated_at', name: 'ticketit.updated_at' },
-            	{ data: 'agent', name: 'users.name' },
+            	{ data: 'agent', name: 'users.user_name' },
 	            @if( $u->isAgent() || $u->isAdmin() )
 		            { data: 'priority', name: 'ticketit_priorities.name' },
-	            	{ data: 'owner', name: 'users.name' },
+	            	{ data: 'owner', name: 'users.user_name' },
 		            { data: 'category', name: 'ticketit_categories.name' }
 	            @endif
 	        ]

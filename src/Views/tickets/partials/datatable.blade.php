@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <td>{{ trans('ticketit::lang.table-id') }}</td>
+            <td>Ticket ID</td>
             <td>{{ trans('ticketit::lang.table-subject') }}</td>
             <td>{{ trans('ticketit::lang.table-status') }}</td>
             <td>{{ trans('ticketit::lang.table-last-updated') }}</td>

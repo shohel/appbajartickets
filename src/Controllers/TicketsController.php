@@ -47,6 +47,7 @@ class TicketsController extends Controller
             ->join('ticketit_categories', 'ticketit_categories.id', '=', 'ticketit.category_id')
             ->select([
                 'ticketit.id',
+                'ticketit.ticket_no',
                 'ticketit.subject AS subject',
                 'ticketit_statuses.name AS status',
                 'ticketit_statuses.color AS color_status',
