@@ -102,7 +102,7 @@ class NotificationsController extends Controller
                 function ($m) use ($ticket, $notification_owner, $subject, $type,$from_email) {
 
                     if ($type != 'agent') {
-                        if ($ticket->user->email != $notification_owner->email) {
+/*                        if ($ticket->user->email != $notification_owner->email) {
                             $m->to($ticket->user->email, $ticket->user->name);
                         }
 
@@ -113,9 +113,9 @@ class NotificationsController extends Controller
 
                         if ($ticket->user->email = $notification_owner->email) {
                             $m->to($ticket->user->email, $ticket->user->name);
-                        }
+                        }*/
 
-
+                        $m->to($ticket->user->email, $ticket->user->name);
 
                     } else {
                         $m->to($ticket->agent->email, $ticket->agent->name);
@@ -132,7 +132,7 @@ class NotificationsController extends Controller
 
                     if ($type != 'agent') {
 
-                        if ($ticket->user->email != $notification_owner->email) {
+/*                        if ($ticket->user->email != $notification_owner->email) {
                             $m->to($ticket->user->email, $ticket->user->name);
                         }
 
@@ -143,8 +143,8 @@ class NotificationsController extends Controller
 
                         if ($ticket->user->email = $notification_owner->email) {
                             $m->to($ticket->user->email, $ticket->user->name);
-                        }
-
+                        }*/
+                        $m->to($ticket->user->email, $ticket->user->name);
 
                     } else {
                         $m->to($ticket->agent->email, $ticket->agent->name);
