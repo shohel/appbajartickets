@@ -8,8 +8,8 @@
                             {!! link_to_route(Request::segment(1).'/'.$setting->grab('main_route').'.complete', trans('ticketit::lang.btn-mark-complete'), $ticket->id,
                                                 ['class' => 'btn btn-success']) !!}
                     @elseif($ticket->completed_at && $reopen_perm == 'yes')
-                            {!! link_to_route(Request::segment(1).'.'.$setting->grab('main_route').'.reopen', trans('ticketit::lang.reopen-ticket'), $ticket->id,
-                                                ['class' => 'btn btn-success']) !!}
+                            {{--{!! link_to_route(Request::segment(1).'.'.$setting->grab('main_route').'.reopen', trans('ticketit::lang.reopen-ticket'), $ticket->id,
+                                                ['class' => 'btn btn-success']) !!}--}}
                     @endif
                     @if($u->isAgent())
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ticket-edit-modal">
