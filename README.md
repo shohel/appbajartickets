@@ -1,3 +1,7 @@
+> **Note:** The <i class="icon-upload"></i> This is our customized version for a project, may not working to your project, you can find original url at 
+
+ #### <i class="icon-folder-open"></i> <a href="https://packagist.org/packages/kordy/ticketit"> Switch to orignal repository </a>
+
 # Ticketit  v0.2.0
 
 A simple helpdesk tickets system for Laravel 5.1 which integrates smoothly with Laravel default users and auth system. 
