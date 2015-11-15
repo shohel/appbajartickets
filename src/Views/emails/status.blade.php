@@ -101,8 +101,33 @@
                                             </td>
                                         </tr>
                                     </tbody></table>
-                                    
-                                    
+
+
+
+
+                                    <table style="margin: 0 auto;" cellpadding="0" cellspacing="10" width="80%"  style="margin: 0 auto">
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <br>
+                                                <a href="https://plus.google.com/103431356737551106408/about" target="_blannk"><img style="width: 70%;"src="{{ asset('assets/emo/googleplus.png') }}" alt="google+"></a>
+                                                <br>
+                                            </td>
+
+                                            <td style="text-align: center;">
+                                                <br>
+                                                <a href="https://www.facebook.com/appbajar" target="_blank"><img style="width: 70%;"  src="{{ asset('assets/emo/find-us-on-facebook.jpg') }}" alt="facebook"></a>
+                                                <br>
+                                            </td>
+
+                                            <td style="text-align: center;">
+                                                <br>
+                                                <a href="https://twitter.com/TheAppBajar" target="_blank"><img style="width: 70%;" src="{{ asset('assets/emo/twitterIcon.png') }}" alt="twitter"></a>
+
+                                                <br>
+                                            </td>
+                                        </tr>
+                                    </table>
+
                                 
                                     
                                     <br>
