@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12 ticketComment">
                 <p> {!! nl2br(e($ticket->content))  !!} </p>
             </div>
         </div>
